@@ -1,0 +1,9 @@
+<h2>Employee Detail</h2>
+<br>
+<h5 *ngIf="employee_id; else elseBlock">You have selected EmpID - {{employee_id}}</h5>
+<ng-template #elseBlock>
+    <h5>Please Select at least One employee from Employeelist</h5>
+</ng-template>
+<hr>
+<button (click)="goToEmployee()" class="btn btn-danger">Back</button>
+

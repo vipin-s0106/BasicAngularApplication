@@ -1,0 +1,123 @@
+<!--
+Interpolation
+-->
+<h3>Welcome {{ name }} </h3>
+<h3>{{ 2+2 }} </h3>
+<h3>{{ "Welcome " + name }} </h3>
+<h3>{{ name.length }} </h3>
+<h3>{{ name.toUpperCase() }} </h3>
+<h2>{{ siteUrl }}</h2>
+<br>
+<hr>
+
+<!--
+Property Binding
+used where string don't works(boolean required) like disbaled attribute
+for that we have to use the property binding
+eg. - On seconf Input
+-->
+<p>Property Binding</p>
+<input type="text" value="Vipin" [id]="myID">
+<br>
+<input type="text" [disabled]="isDisabled" value="Vipin">
+
+<!--
+Style Binding
+-->
+<p>Style Binding</p>
+<h2 [style.color]="styleBinding">Hey Hi!</h2>
+<h3 [ngStyle]="styleObj" >How you Doing -_-</h3>
+
+<!--
+Event Handler
+-->
+<p>Event Handler</p>
+<button (click)="GreetUser()">Greet</button><br>
+{{ greetMessage }}
+<br>
+<br>
+<p>Type Something and see the Magic</p>
+<input #box (keyup)="onKey(box.value)"><br>
+<p>{{values}}</p>
+<hr>
+
+<!--
+Template Reference variable
+-->
+<p>Template Reference variable</p>
+<input type="text" #variable_name>
+<br>
+<button (click)="PrintEnterValue(variable_name.value)">Submit</button>
+<br>
+{{InputMsg}}
+<br>
+
+<!--
+Two Way Binding
+Two way data flow thats why two way binding
+template to class and class to template
+-->
+<p>Two Way Binding</p>
+<input [(ngModel)]="name" type="text">
+{{name}}
+
+
+<!--
+ngIF Structural Directive
+-->
+<p>ngIF Structural Directive</p>
+<h2 *ngIf="displayname; else elseBlock">{{name}}</h2>
+<ng-template #elseBlock>
+    <h2>Name is Hidden</h2>
+</ng-template>
+
+<div *ngIf="displayname; then ThenBlock; else ElseBlock"></div>
+
+<ng-template #ThenBlock>
+    <h2>IF is printing</h2>
+</ng-template>
+
+<ng-template #ElseBlock>
+    <h2>Else is printing</h2>
+</ng-template>
+
+
+<!--
+ngSwitch Structural Directive
+-->
+<p>ngSwitch Structural Directive</p>
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'" style="color:red">You Picked Red</div>
+    <div *ngSwitchCase="'orange'" style="color:orange">You Picked Red</div>
+    <div *ngSwitchCase="'green'" style="color:green">You Picked Red</div>
+    <div *ngSwitchDefault>Pick Again</div>
+</div>
+
+<!--
+ngFor
+-->
+<hr>
+<p>ngFor</p>
+<div *ngFor="let col of colors">
+    <h2 style="color:{{col}}">{{col}}</h2>
+</div>
+
+
+<br>
+<br>
+<hr>
+<p>Pipes</p>
+<h2>{{name}}</h2>
+<h2>{{name | lowercase }}</h2>
+<h2>{{name | uppercase }}</h2>
+<h2>{{name | slice:1:4 }}</h2>
+
+
+
+
+
+<hr>
+<p>Componenet Interaction From App to Test</p>
+<h1>Hey {{ parentData }}</h1>
+<button (click)="fireEvent()">Say Hello</button>
+
