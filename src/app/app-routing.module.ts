@@ -5,13 +5,23 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { TestComponent } from './test/test.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OverviewComponent } from './overview/overview.component';
+import { ContactComponent } from './contact/contact.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'/departments',pathMatch:'full'},
   {path: 'departments',component:DepartmentListComponent},
   {path: 'employees',component:EmployeeListComponent},
-  {path:'employees/:id',component:EmployeeDetailComponent},
+  {
+    path:'employees/:id',
+    component:EmployeeDetailComponent,
+    children:[
+      {path:'overview',component:OverviewComponent},
+      {path:'contact',component:ContactComponent}
+    ]
+
+  },
   {path: 'employee_detail',component:EmployeeDetailComponent},
   {path: 'test',component:TestComponent},
   {path:'**',component:PageNotFoundComponent},
@@ -28,4 +38,6 @@ export const RoutingComponent = [
   EmployeeDetailComponent,
   TestComponent,
   PageNotFoundComponent,
+  OverviewComponent,
+  ContactComponent,
 ]

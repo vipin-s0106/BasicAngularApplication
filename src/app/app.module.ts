@@ -13,14 +13,16 @@ import { EmployeeService } from './employee.service';
 
 //Importing RoutingComponenet so Normal Componenet automatically imported
 import { RoutingComponent } from './app-routing.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutingComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

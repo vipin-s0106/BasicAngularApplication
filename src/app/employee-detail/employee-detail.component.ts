@@ -20,7 +20,18 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   goToEmployee(){
-    this.router.navigate(['/employees'])
+    let selected_id = this.employee_id ? this.employee_id : null; 
+    //this.router.navigate(['/employees',{id:selected_id}])
+    //using relative route
+    this.router.navigate(['../',{id:selected_id}],{relativeTo:this.route})
+  }
+
+  getOverview(){
+    this.router.navigate(['overview'],{relativeTo:this.route});
+  } 
+
+  getContact(){
+    this.router.navigate(['contact'],{relativeTo:this.route});
   }
 
 }
